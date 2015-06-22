@@ -1,12 +1,12 @@
 # resizeo
 
-Resize a dataURI in scale
+Resize a dataURI in scale to a maximum dimension
 
 
 ## Usage
 
     var resizeo = require('resizeo');
 
-    resizeo(uri, 0.5, function(error, resizedUri) {
-        // use new uri
+    resizeo(dataUri, 1024, function(error, resizedUri) {
+        // use resizedUri
     });

@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var crel = require('crel'),
-    rotato = require('../'),
+    resizeo = require('../'),
     imagePath = 'kitten.jpg',
     toDataUri = require('to-datauri');
 
@@ -11,45 +11,47 @@ window.addEventListener('load', function(){
     );
 
     toDataUri(imagePath, function (error, uri) {
-        rotato(uri, 0.1, function(error, rotatedUri) {
+        resizeo(uri, 100, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.2, function(error, rotatedUri) {
+        resizeo(uri, 200, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.3, function(error, rotatedUri) {
+        resizeo(uri, 300, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.4, function(error, rotatedUri) {
+        resizeo(uri, 400, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.5, function(error, rotatedUri) {
+        resizeo(uri, 500, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
     });
 });
 },{"../":2,"crel":3,"to-datauri":4}],2:[function(require,module,exports){
-module.exports = function(dataUri, scale, callback){
+module.exports = function(dataUri, maxDimension, callback){
     var source = new Image();
 
     source.addEventListener('load', function(){
-        var canvas = document.createElement('canvas');
-        canvas.width = source.width * scale;
-        canvas.height = source.height * scale;
+        var canvas = document.createElement('canvas'),
+            ratio = Math.max(source.width, source.height) / maxDimension;
+
+        canvas.width = source.width / ratio;
+        canvas.height = source.height / ratio;
 
         var context = canvas.getContext('2d');
 

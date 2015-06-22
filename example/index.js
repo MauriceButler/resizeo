@@ -1,5 +1,5 @@
 var crel = require('crel'),
-    rotato = require('../'),
+    resizeo = require('../'),
     imagePath = 'kitten.jpg',
     toDataUri = require('to-datauri');
 
@@ -10,33 +10,33 @@ window.addEventListener('load', function(){
     );
 
     toDataUri(imagePath, function (error, uri) {
-        rotato(uri, 0.1, function(error, rotatedUri) {
+        resizeo(uri, 100, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.2, function(error, rotatedUri) {
+        resizeo(uri, 200, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.3, function(error, rotatedUri) {
+        resizeo(uri, 300, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.4, function(error, rotatedUri) {
+        resizeo(uri, 400, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
 
-        rotato(uri, 0.5, function(error, rotatedUri) {
+        resizeo(uri, 500, function(error, resizedUri) {
             crel(document.body,
-                crel('img', {src: rotatedUri})
+                crel('img', {src: resizedUri})
             );
         });
     });

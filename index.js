@@ -1,10 +1,12 @@
-module.exports = function(dataUri, scale, callback){
+module.exports = function(dataUri, maxDimension, callback){
     var source = new Image();
 
     source.addEventListener('load', function(){
-        var canvas = document.createElement('canvas');
-        canvas.width = source.width * scale;
-        canvas.height = source.height * scale;
+        var canvas = document.createElement('canvas'),
+            ratio = Math.max(source.width, source.height) / maxDimension;
+
+        canvas.width = source.width / ratio;
+        canvas.height = source.height / ratio;
 
         var context = canvas.getContext('2d');
 
