@@ -1,0 +1,29 @@
+{
+  "name": "resizeo",
+  "version": "0.0.1",
+  "description": "Resize a dataURI in scale",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MauriceButler/resizeo.git"
+  },
+  "author": "Maurice Butler <maurice.butler@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MauriceButler/resizeo/issues"
+  },
+  "homepage": "https://github.com/MauriceButler/resizeo",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "resize",
+    "scale",
+    "drawImage",
+    "canvas",
+    "context"
+  ]
+}
