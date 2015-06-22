@@ -1,6 +1,6 @@
 {
   "name": "resizeo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Resize a dataURI in scale",
   "main": "index.js",
   "scripts": {
