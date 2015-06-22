@@ -1,0 +1,2 @@
+# resizeo
+Resize a dataURI
